@@ -1,6 +1,7 @@
 /*****************************************************************************/
 /*
-/* Common
+ * Colorscheme:
+ *   https://kuler.adobe.com/vrphotographie-color-theme-3496949/edit/?copy=true&base=1&rule=Custom&selected=2&name=Copy%20of%20vrphotographie&mode=rgb&rgbvalues=0,0.5803921568627451,0.2032686935720324,0.25882352941176473,0.2549019607843137,0.25098039215686274,1,0.34679935061626566,0,0.43,0.4234848484848514,0.41696969696969693,0,0.49,0.17216216216210795&swatchOrder=0,1,2,3,4
 /*
 /*****************************************************************************/
 /* Global Reset */
@@ -11,10 +12,10 @@
 
 html, body {
   height: 100%;
+  background-color: #424140;
 }
 
 body {
-  background-color: #FFF;
   font: 100% "Palatino Linotype", "Book Antiqua", Palatino, serif;
   text-align: center;
 }
@@ -33,15 +34,73 @@ p {
 }
 
 a {
-  color: #00a;
+  color: #FF5800;
+  text-decoration: none;
 }
 a:hover {
-  color: #222222;
+  color: #FF5800;
+  text-decoration: underline;
 }
 a:visited {
-  color: #a0a;
+  color: #FF5800;
 }
 
+/*****************************************************************************/
+/*
+/* Main layout
+/*
+/*****************************************************************************/
+header.main {
+  width: 100%;
+  height: 70px;
+  background-color: #009434;
+  border-bottom: 10px solid #007D2C;
+}
+header.main .content {
+  margin: 0 auto;
+}
+header.main h1,
+header.main h1 a {
+  float: left;
+  color: #FFF;
+  font-size: 32px;
+  font-variant: small-caps;
+  text-decoration: none;
+  line-height: 70px;
+}
+header.main nav {
+  padding-top: 49px;
+  float: right;
+}
+header.main nav a {
+  text-decoration: none;
+  color: #FFF;
+}
+section.main {
+  background-color: #FAFAFA;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+footer {
+  background-color: #424140;
+  font-size: 80%;
+  color: #999;
+  border-top: 10px solid #6E6C6A;
+  overflow: hidden;
+}
+footer .contact {
+  float: left;
+  margin-right: 3em;
+}
+footer .rss {
+  margin-top: 1.1em;
+  margin-right: -.2em;
+  float: right;
+}
+footer .rss img {
+  border: 0;
+}
 /*****************************************************************************/
 /*
 /* Home
@@ -65,64 +124,17 @@ a:visited {
 /* Site
 /*
 /*****************************************************************************/
-.site {
+.content {
   text-align: justify;
-  width: 42em;
-  margin: 3em auto 2em;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
   line-height: 1.5em;
-}
-
-.header a {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.title {
-  display: inline-block;
-  margin-bottom: 2em;
-}
-.title a {
-  color: #a00;
-}
-.title a:hover {
-  color: #222222;
-}
-
-.header a.extra {
-  color: #aaa;
-  margin-left: 1em;
-}
-
-.header a.extra:hover {
-  color: #222222;
-}
-
-.meta {
-  color: #aaa;
-}
-
-.footer {
-  font-size: 80%;
-  color: #666;
-  border-top: 4px solid #eee;
-  margin-top: 2em;
+  padding: 0 10px;
+  box-sizing: border-box;
   overflow: hidden;
 }
-.footer .contact {
-  float: left;
-  margin-right: 3em;
-}
-.footer .contact a {
-  color: #8085C1;
-}
-.footer .rss {
-  margin-top: 1.1em;
-  margin-right: -.2em;
-  float: right;
-}
-.footer .rss img {
-  border: 0;
-}
+
 
 /*****************************************************************************/
 /*
@@ -148,7 +160,6 @@ article .post-content p {
 }
 article .post-content pre {
   border: 1px solid #002B36;
-  background-color: #002B36;
   padding: 0 .4em;
 }
 article .post-content ul, article .post-content ol {
@@ -156,7 +167,6 @@ article .post-content ul, article .post-content ol {
 }
 article .post-content code {
   border: 1px solid #002B36;
-  background-color: #002B36;
   padding: 0 .2em;
 }
 article .post-content pre code {
@@ -164,9 +174,7 @@ article .post-content pre code {
 }
 article .post-content pre.terminal {
   border: 1px solid #222222;
-  background-color: #333;
   color: #FFF;
 }
 article .post-content pre.terminal code {
-  background-color: #333;
 }
