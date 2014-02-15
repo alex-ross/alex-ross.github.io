@@ -26,7 +26,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  margin-bottom: 1em;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 2.4em;
+  line-height: 1.25em;
+  letter-spacing: -2px;
+  margin: 0 auto 0.5em;
 }
 
 p {
@@ -112,10 +116,15 @@ footer .rss img {
 }
 .posts li {
   line-height: 1.75em;
+  font-size: 120%;
+  width: 100%;
+  border-bottom: 1px solid #aaa;
+}
+.posts li:last-of-type {
+  border-bottom: 1px solid transparent;
 }
 .posts span {
   color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
   font-size: 80%;
 }
 
@@ -141,13 +150,6 @@ footer .rss img {
 /* Posts
 /*
 /*****************************************************************************/
-article header h1 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 2.4em;
-  line-height: 1.25em;
-  letter-spacing: -2px;
-  margin: 0 auto 0.5em;
-}
 article .post-content {
   /* standard */
   /* terminal */
@@ -175,6 +177,4 @@ article .post-content pre code {
 article .post-content pre.terminal {
   border: 1px solid #222222;
   color: #FFF;
-}
-article .post-content pre.terminal code {
 }
