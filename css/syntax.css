@@ -2,11 +2,11 @@
   padding: 7px 7px 7px 10px;
   border: 1px solid #ddd;
   margin: 20px 0 20px 0;
-  overflow: hidden;
+  overflow: scroll;
 }
  
-code {
-  font-family: 'Menlo', 'Bitstream Vera Sans Mono','Courier', monospace;
+code, pre {
+  font-family: 'Ubuntu Mono', monospace;
   font-size: 14px;
 }
 

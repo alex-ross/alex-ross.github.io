@@ -1,10 +1,11 @@
-/*****************************************************************************/
-/*
- * Colorscheme:
- *   https://kuler.adobe.com/vrphotographie-color-theme-3496949/edit/?copy=true&base=1&rule=Custom&selected=2&name=Copy%20of%20vrphotographie&mode=rgb&rgbvalues=0,0.5803921568627451,0.2032686935720324,0.25882352941176473,0.2549019607843137,0.25098039215686274,1,0.34679935061626566,0,0.43,0.4234848484848514,0.41696969696969693,0,0.49,0.17216216216210795&swatchOrder=0,1,2,3,4
-/*
-/*****************************************************************************/
-/* Global Reset */
+/**
+ * Fonts
+ ****************************************************************************/
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu|Ubuntu+Condensed);
+
+/**
+ * Global Reset
+ ****************************************************************************/
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +17,8 @@ html, body {
 }
 
 body {
-  font: 100% "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 100%;
+  font-family: 'Ubuntu', sans-serif;
   text-align: center;
 }
 
@@ -26,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: 'Ubuntu Condensed', cursive;
   font-size: 2.4em;
   line-height: 1.25em;
   letter-spacing: -2px;
@@ -56,32 +58,39 @@ a:visited {
 /*****************************************************************************/
 header.main {
   width: 100%;
-  height: 70px;
-  background-color: #009434;
-  border-bottom: 10px solid #007D2C;
+  background-color: #fff;
 }
 header.main .content {
   margin: 0 auto;
 }
+
+header.main h1,
+header.main h1 a,
+header.main nav,
+header.main nav a {
+  line-height: 56px;
+}
 header.main h1,
 header.main h1 a {
   float: left;
-  color: #FFF;
-  font-size: 32px;
-  font-variant: small-caps;
+  color: #000;
+  font-size: 20px;
   text-decoration: none;
-  line-height: 70px;
+  margin: 0;
 }
 header.main nav {
-  padding-top: 49px;
   float: right;
 }
 header.main nav a {
   text-decoration: none;
-  color: #FFF;
+}
+#logo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 100px;
 }
 section.main {
-  background-color: #FAFAFA;
+  background-color: #FFF;
   padding-top: 10px;
   padding-bottom: 20px;
 }
@@ -104,6 +113,11 @@ footer .rss {
 }
 footer .rss img {
   border: 0;
+}
+hr {
+  border: 0;
+  border-bottom: 1px dashed #ccc;
+  background-color: #999;
 }
 /*****************************************************************************/
 /*
@@ -134,31 +148,31 @@ footer .rss img {
 /*
 /*****************************************************************************/
 .content {
-  text-align: justify;
+  text-align: left;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.5em;
+  line-height: 1.2em;
   padding: 0 10px;
   box-sizing: border-box;
   overflow: hidden;
 }
 
+.circular {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
 
 /*****************************************************************************/
 /*
 /* Posts
 /*
 /*****************************************************************************/
-article .post-content {
-  /* standard */
-  /* terminal */
-}
 article .post-content p {
   color: #222222;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 1.28em;
-  line-height: 1.6em;
+  line-height: 1.2em;
 }
 article .post-content pre {
   border: 1px solid #002B36;
