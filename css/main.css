@@ -199,3 +199,6 @@ article .post-content pre.terminal {
   border: 1px solid #222222;
   color: #FFF;
 }
+article .post-content img {
+  max-width: 100%;
+}
