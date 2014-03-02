@@ -171,7 +171,7 @@ hr {
 /*****************************************************************************/
 article .post-content p {
   color: #222222;
-  font-size: 1.28em;
+  font-size: 1.1em;
   line-height: 1.2em;
 }
 article .post-content pre {
@@ -182,8 +182,15 @@ article .post-content ul, article .post-content ol {
   margin-left: 1.35em;
 }
 article .post-content code {
-  border: 1px solid #002B36;
+  border: 1px solid #DFDFDF;
   padding: 0 .2em;
+}
+article .post-content p code {
+  border: 2px solid #272822;
+  padding: 0 .2em;
+  font-size: 0.85em;
+  background-color: #272822;
+  color: #f8f8f2;
 }
 article .post-content pre code {
   border: none;
