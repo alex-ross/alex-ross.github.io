@@ -26,6 +26,8 @@ body{
 main.container, main.content > .container{
     width:50em;
     max-width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 hr{
@@ -236,5 +238,5 @@ footer .container{
     a{
         color: $white;
         text-decoration: underline;
-    }    
+    }
 }
