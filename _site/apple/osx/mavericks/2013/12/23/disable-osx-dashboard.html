@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title> Disable OS X Dashboard  - aross.se</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="author" href="/humans.txt">
+    <meta name="description" content="Description Goes Here">
+    <link rel="stylesheet" href="/css/style.css">
+
+  </head>
+  <body>
+    <header></header>
+
+    <main class="content">
+  <section class="container">
+    <div class="row-fluid">
+      <article class="home-icon">
+        <a href="/">
+          <i class="icon-home"></i> 
+        </a>
+      </article>
+      <article class="post">
+        <h2 class="content">Disable OS X Dashboard</h2>
+        <h5>23 December 2013</h5>
+        <section>
+          <p>If you are like me and never uses Dashboard on your mac. Why should you still
+have it there?</p>
+
+<p>I found out that it can be killed and disabled.</p>
+
+<p>First you need to open up your terminal and type:</p>
+
+<div class="highlight"><pre><code class="bash">defaults write com.apple.dashboard mcx-disabled -boolean <span class="nb">true</span>
+</code></pre></div>
+
+<p>Then you just have to relaunch the dock by typing:</p>
+
+<div class="highlight"><pre><code class="bash">killall Dock
+</code></pre></div>
+
+<p>Now your done!</p>
+
+<p>Source: <a href="http://www.techradar.com/news/software/operating-systems/20-os-x-mavericks-tips-and-tricks-1190830">Techradar</a></p>
+
+          <hr>
+        </section>
+        <section style="margin-bottom: 2em;">
+          
+           
+          <a rel="next" style="float:right" class="a-hover"href="/pow/rbenv/2014/03/02/working-pow-setup.html">Get pow running with ZSH and Rbenv <i class="icon-arrow-right"></i></a>
+          
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+
+    <footer>
+      <div class="container">
+        Theme: Modified version of <a href="http://richbray.me/frap/">Green Tea</a> | Alexander Ross, alex@aross.se
+      </div>
+    </footer>
+  </body>
+</html>

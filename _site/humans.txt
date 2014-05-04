@@ -1,0 +1,4 @@
+/* THANKS */
+
+The theme is based on Green Tee which you can find here
+http://richbray.me/frap/.
