@@ -2,4 +2,4 @@ name: aross.se
 markdown: redcarpet
 pygments: true
 exclude: ["Gemfile", "Gemfile.lock", "README.md", 'sass', 'watch.sh', 'style.scss'] # files to exclude
-paginate: 10
+paginate: 30
