@@ -22,7 +22,7 @@ is what I see.
 ![LoadError: cannot load such file -- bundler/setup][bundler_setup_error]
 
 Pow has a good [troubleshooting][pow_throuble] with lots of examples for
-similar problems. 
+similar problems.
 
 Because I'm using both ZSH and Rbenv I listen to there advise and put this
 content in my `~/.powconfig`.
@@ -49,7 +49,7 @@ same version I'm using in my terminal. Just changing the PATH from
 `/usr/local/opt/rbenv` to `/usr/local/var/rbenv` didn't work but when I also set
 `RBENV_ROOT` to `/usr/local/var/rbenv` it did. Yey!!!
 
-**My `~/.powconfig` file**
+## My `~/.powconfig` file
 {% highlight bash %}
 export HOME=/Users/ross
 export RBENV_ROOT=/usr/local/var/rbenv

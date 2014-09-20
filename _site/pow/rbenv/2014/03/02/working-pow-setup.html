@@ -3,29 +3,44 @@
   <head>
     <meta charset="utf-8"/>
     <title> Get pow running with ZSH and Rbenv  - aross.se</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="author" href="/humans.txt">
     <meta name="description" content="Description Goes Here">
     <link rel="stylesheet" href="/css/style.css">
 
+    <!-- Google Fonts embed code -->
+    <script type="text/javascript">
+    (function() {
+      var link_element = document.createElement("link"),
+      s = document.getElementsByTagName("script")[0];
+      if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+        link_element.href = "http:";
+      }
+      link_element.href += "//fonts.googleapis.com/css?family=Quicksand:400,300,700";
+      link_element.rel = "stylesheet";
+      link_element.type = "text/css";
+      s.parentNode.insertBefore(link_element, s);
+    })();
+    </script>
+
   </head>
   <body>
-    <header></header>
+    <header>
+      <a href="/" title="aross.se" class="title">
+        <span class="logo"></span>
+        <span class="text">aross.se</span>
+        <!-- <span class="block">ss.se</span> -->
+      </a>
+      <p class="muted">Blogg about computers, development and more...</p>
+    </header>
 
-    <main class="content">
-  <section class="container">
-    <div class="row-fluid">
-      <article class="home-icon">
-        <a href="/">
-          <i class="icon-home"></i> 
-        </a>
-      </article>
-      <article class="post">
-        <h2 class="content">Get pow running with ZSH and Rbenv</h2>
-        <h5>02 March 2014</h5>
-        <section>
-          <p>Usually I&#39;m using <code>rails s</code> with thin or webbrick when developing web
+    <main>
+  <article>
+    <h1>Get pow running with ZSH and Rbenv</h1>
+    <p class="muted"><small>02 March 2014</small></p>
+
+    <p>Usually I&#39;m using <code>rails s</code> with thin or webbrick when developing web
 applications because I&#39;ve had lots of issues with pow and file uploads. But when
 I&#39;m working on multiply projects within same day it&#39;s really handy to have pow
 installed.</p>
@@ -42,7 +57,7 @@ is what I see.
 <img src="/img/posts/2014-03-02/bundler-setup.png" alt="LoadError: cannot load such file -- bundler/setup"></p>
 
 <p>Pow has a good <a href="https://github.com/basecamp/pow/wiki/Troubleshooting#rbenv">troubleshooting</a> with lots of examples for
-similar problems. </p>
+similar problems.</p>
 
 <p>Because I&#39;m using both ZSH and Rbenv I listen to there advise and put this
 content in my <code>~/.powconfig</code>.</p>
@@ -69,7 +84,7 @@ same version I&#39;m using in my terminal. Just changing the PATH from
 <code>/usr/local/opt/rbenv</code> to <code>/usr/local/var/rbenv</code> didn&#39;t work but when I also set
 <code>RBENV_ROOT</code> to <code>/usr/local/var/rbenv</code> it did. Yey!!!</p>
 
-<p><strong>My <code>~/.powconfig</code> file</strong></p>
+<h2>My <code>~/.powconfig</code> file</h2>
 
 <div class="highlight"><pre><code class="bash"><span class="nb">export </span><span class="nv">HOME</span><span class="o">=</span>/Users/ross
 <span class="nb">export </span><span class="nv">RBENV_ROOT</span><span class="o">=</span>/usr/local/var/rbenv
@@ -77,24 +92,32 @@ same version I&#39;m using in my terminal. Just changing the PATH from
 <span class="nb">eval</span> <span class="s2">&quot;$(rbenv init -)&quot;</span>
 </code></pre></div>
 
-          <hr>
-        </section>
-        <section style="margin-bottom: 2em;">
-           
-          <a rel="prev" class="a-hover"href="/apple/osx/mavericks/2013/12/23/disable-osx-dashboard.html"><i class="icon-arrow-left"></i> Disable OS X Dashboard</a>
-          
-          
-        </section>
-      </article>
-    </div>
-  </section>
+  </article>
+
+  <nav>
+    
+    <a rel="prev" class="a-hover"href="/apple/osx/mavericks/2013/12/23/disable-osx-dashboard.html"><i class="icon-arrow-left"></i> Disable OS X Dashboard</a>
+    
+    
+    <a rel="next" style="float:right" class="a-hover"href="/windows-7/bootable-usb/osx-mavericks/2014/06/17/bootable-windows-7-usb-from-osx.html">Bootable USB for Win 7 from OSX <i class="icon-arrow-right"></i></a>
+    
+  </nav>
 </main>
 
 
     <footer>
-      <div class="container">
-        Theme: Modified version of <a href="http://richbray.me/frap/">Green Tea</a> | Alexander Ross, alex@aross.se
-      </div>
+      <hr>
+
+      <p>
+        Alexander Ross
+        <a href="mailto:alex+blogg@aross.se?subject=Hi, Alexander Ross">
+          alex@aross.se
+        </a>
+      </p>
+
+      <p>
+        <a href="http://devb.io/ross">My <strong>CV</strong> at devb.io</a>
+      </p>
     </footer>
   </body>
 </html>

@@ -3,22 +3,53 @@
   <head>
     <meta charset="utf-8"/>
     <title>{% if page.title %} {{ page.title }} {% endif %} - aross.se</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="author" href="/humans.txt">
     <meta name="description" content="Description Goes Here">
     <link rel="stylesheet" href="/css/style.css">
 
+    <!-- Google Fonts embed code -->
+    <script type="text/javascript">
+    (function() {
+      var link_element = document.createElement("link"),
+      s = document.getElementsByTagName("script")[0];
+      if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+        link_element.href = "http:";
+      }
+      link_element.href += "//fonts.googleapis.com/css?family=Quicksand:400,300,700";
+      link_element.rel = "stylesheet";
+      link_element.type = "text/css";
+      s.parentNode.insertBefore(link_element, s);
+    })();
+    </script>
+
   </head>
   <body>
-    <header></header>
+    <header>
+      <a href="/" title="aross.se" class="title">
+        <span class="logo"></span>
+        <span class="text">aross.se</span>
+        <!-- <span class="block">ss.se</span> -->
+      </a>
+      <p class="muted">Blogg about computers, development and more...</p>
+    </header>
 
     {{ content }}
 
     <footer>
-      <div class="container">
-        Theme: Modified version of <a href="http://richbray.me/frap/">Green Tea</a> | Alexander Ross, alex@aross.se
-      </div>
+      <hr>
+
+      <p>
+        Alexander Ross
+        <a href="mailto:alex+blogg@aross.se?subject=Hi, Alexander Ross">
+          alex@aross.se
+        </a>
+      </p>
+
+      <p>
+        <a href="http://devb.io/ross">My <strong>CV</strong> at devb.io</a>
+      </p>
     </footer>
   </body>
 </html>

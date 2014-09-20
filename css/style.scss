@@ -1,8 +1,80 @@
-@import "sass/boot/bootstrap.scss";
-@import "sass/boot/responsive.scss";
-@import "sass/cms/ColorMeSASS.scss";
-@import "sass/custom/mq.scss";
-//@import "sass/custom/hint.scss"; Uncomment for hint.css
-@import "sass/custom/mixins.scss";
-@import "sass/custom/style.scss"; //Custom Style
-@import "sass/custom/print.scss";
+$background-color: white;
+$screen-large: 580px;
+
+@import "sass/reset.scss";
+@import "sass/typographic.scss";
+@import "sass/github.scss";
+@import "sass/mixins.scss";
+
+.block {
+  display: block;
+}
+
+.block-center {
+  @extend .block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Main layout
+main,
+header,
+footer {
+  max-width: 960px;
+  min-width: 100px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+  img {
+    max-width: 100%;
+  }
+}
+
+.pages-index {
+  article time {
+
+  }
+  a {
+    color: $font-color;
+  }
+}
+
+header {
+  a.title { color: #000; }
+  .title {
+    @extend .block;
+    overflow: hidden;
+    font-size: 60px;
+    line-height: 1.2em;
+  }
+  .text {
+    @extend .block;
+    @extend .text-center;
+  }
+  .title .logo {
+    @include border-radius(50px);
+    @extend .block-center;
+
+    background-image: url('http://gravatar.com/avatar/ad44bcb9b614c882b872568581f48553?default=monsterid&size=100');
+    height: 96px;
+    width: 96px;
+    border-color: darken($background-color, 70%);
+    border-width: 2px;
+    border-style: solid;
+  }
+  p {
+    @extend .block;
+    @extend .text-center;
+  }
+}
+
+@media screen and (min-width: $screen-large) {
+  h1 {
+    font-size: 64px;
+  }
+}

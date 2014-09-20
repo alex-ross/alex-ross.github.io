@@ -3,80 +3,95 @@
   <head>
     <meta charset="utf-8"/>
     <title> Mainpage  - aross.se</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="author" href="/humans.txt">
     <meta name="description" content="Description Goes Here">
     <link rel="stylesheet" href="/css/style.css">
 
+    <!-- Google Fonts embed code -->
+    <script type="text/javascript">
+    (function() {
+      var link_element = document.createElement("link"),
+      s = document.getElementsByTagName("script")[0];
+      if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+        link_element.href = "http:";
+      }
+      link_element.href += "//fonts.googleapis.com/css?family=Quicksand:400,300,700";
+      link_element.rel = "stylesheet";
+      link_element.type = "text/css";
+      s.parentNode.insertBefore(link_element, s);
+    })();
+    </script>
+
   </head>
   <body>
-    <header></header>
+    <header>
+      <a href="/" title="aross.se" class="title">
+        <span class="logo"></span>
+        <span class="text">aross.se</span>
+        <!-- <span class="block">ss.se</span> -->
+      </a>
+      <p class="muted">Blogg about computers, development and more...</p>
+    </header>
 
-    <main class="content">
-  <section class="container">
-    <div class="row-fluid">
-      <section class="content">
-        <h1>Aross.se</h1>
-        <div class="sub-title">Blogg about computers, development and more...</div>
-      </section>
-      <ul class="entries">
-        
-        <li>
-          <a href="/pow/rbenv/2014/03/02/working-pow-setup.html">
-            <h3>Get pow running with ZSH and Rbenv</h3>
-            <time>02 March 2014</time>
-            <div><p>Usually I&#39;m using <code>rails s</code> with thin or webbrick when developing web applications because I&#39;ve had lots of issues with pow and file uploads. But when I&#39;m working on multiply...</div>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/apple/osx/mavericks/2013/12/23/disable-osx-dashboard.html">
-            <h3>Disable OS X Dashboard</h3>
-            <time>23 December 2013</time>
-            <div><p>If you are like me and never uses Dashboard on your mac. Why should you still have it there?</p> <p>I found out that it can be killed and disabled.</p> <p>First...</div>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
+    <main class="pages-index">
+  
+  <a href="/windows-7/bootable-usb/osx-mavericks/2014/06/17/bootable-windows-7-usb-from-osx.html">
+    <article>
+      <h2>Bootable USB for Win 7 from OSX</h2>
+      <time>
+        <small class="muted">
+          17 June 2014
+        </small>
+      </time>
 
-    <div id="post-pagination">
-      
-      <!--
-      <p class="prev disabled">
-        <span>Previous</span>
-      </p>
-      -->
-      
+      <p>Just built an new computer? Then you may need an operating system on it. If you chosen to install Windows 7 which was bought online as downloaded ISO file or...
+    </article>
+  </a>
+  
+  <a href="/pow/rbenv/2014/03/02/working-pow-setup.html">
+    <article>
+      <h2>Get pow running with ZSH and Rbenv</h2>
+      <time>
+        <small class="muted">
+          02 March 2014
+        </small>
+      </time>
 
-      <ul class="pages">
-        <li class="page">
-          
-          <!-- <span class="current-page">1</span> -->
-          
-        </li>
+      <p>Usually I&#39;m using <code>rails s</code> with thin or webbrick when developing web applications because I&#39;ve had lots of issues with pow and file uploads. But when I&#39;m working on multiply...
+    </article>
+  </a>
+  
+  <a href="/apple/osx/mavericks/2013/12/23/disable-osx-dashboard.html">
+    <article>
+      <h2>Disable OS X Dashboard</h2>
+      <time>
+        <small class="muted">
+          23 December 2013
+        </small>
+      </time>
 
-        
-      </ul>
-
-      
-      <!--
-      <p class="next disabled">
-        <span>Next</span>
-      </p>
-      -->
-      
-    </div>
-  </section>
+      <p>If you are like me and never uses Dashboard on your mac. Why should you still have it there?</p> <p>I found out that it can be killed and disabled.</p> <p>First...
+    </article>
+  </a>
+  
 </main>
 
 
-
     <footer>
-      <div class="container">
-        Theme: Modified version of <a href="http://richbray.me/frap/">Green Tea</a> | Alexander Ross, alex@aross.se
-      </div>
+      <hr>
+
+      <p>
+        Alexander Ross
+        <a href="mailto:alex+blogg@aross.se?subject=Hi, Alexander Ross">
+          alex@aross.se
+        </a>
+      </p>
+
+      <p>
+        <a href="http://devb.io/ross">My <strong>CV</strong> at devb.io</a>
+      </p>
     </footer>
   </body>
 </html>
