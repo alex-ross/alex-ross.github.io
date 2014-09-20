@@ -5,3 +5,8 @@ source "https://rubygems.org"
 gem "jekyll"
 gem "sass"
 gem "nokogiri"
+
+group :development do
+  gem "guard"
+  gem "guard-livereload"
+end
