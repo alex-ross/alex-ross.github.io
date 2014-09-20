@@ -24,7 +24,7 @@ $screen-large: 580px;
 main,
 header,
 footer {
-  max-width: 960px;
+  max-width: 600px;
   min-width: 100px;
   margin: 0 auto;
   padding-left: 20px;
@@ -70,11 +70,5 @@ header {
   p {
     @extend .block;
     @extend .text-center;
-  }
-}
-
-@media screen and (min-width: $screen-large) {
-  h1 {
-    font-size: 64px;
   }
 }
