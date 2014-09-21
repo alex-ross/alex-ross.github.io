@@ -109,4 +109,4 @@ your terminal.
 ![/img/posts/2014-09-21/result.gif](/img/posts/2014-09-21/result.gif)
 
 Remember, you can add as many customers as you want. `STDIN` is pure ruby so
-this example could be applied to ruby scripts.
+this example could be applied to other ruby scripts as well.
