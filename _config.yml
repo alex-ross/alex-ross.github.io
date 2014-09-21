@@ -1,5 +1,5 @@
 name: aross.se
 markdown: redcarpet
 pygments: true
-exclude: ["Gemfile", "Gemfile.lock", "README.md", 'sass', 'watch.sh', 'style.scss'] # files to exclude
+exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'sass', 'watch', 'style.scss', 'Rakefile']
 paginate: 30
