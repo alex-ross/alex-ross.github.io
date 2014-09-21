@@ -1,4 +1,3 @@
-/* THANKS */
+# Hi human
 
-The theme is based on Green Tee which you can find here
-http://richbray.me/frap/.
+Thanks for visiting my blog.
