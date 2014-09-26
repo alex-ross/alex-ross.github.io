@@ -1,4 +1,26 @@
 require "date"
+require "thread"
+require "thwait"
+
+desc "Runs all processes needed for development"
+task :serve do
+  @threads = []
+  def system_thread(*args)
+    @threads << Thread.new do
+      system *args, out: $stdout, err: :out
+    end
+  end
+
+  system_thread 'bundle exec guard'
+  system_thread 'jekyll serve -w'
+  system_thread './watch'
+
+  ThreadsWait.all_waits *@threads
+
+  at_exit do
+    @threads.each { |t| Thread.kill(t) }
+  end
+end
 
 namespace :post do
   desc "Creates a new blogg post"
