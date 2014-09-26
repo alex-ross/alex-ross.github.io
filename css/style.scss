@@ -1,10 +1,10 @@
 $background-color: white;
 $screen-large: 580px;
 
+@import "sass/mixins.scss";
 @import "sass/reset.scss";
 @import "sass/typographic.scss";
 @import "sass/github.scss";
-@import "sass/mixins.scss";
 
 .block {
   display: block;
@@ -27,8 +27,8 @@ footer {
   max-width: 600px;
   min-width: 100px;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   overflow: hidden;
   img {
     max-width: 100%;
@@ -50,7 +50,7 @@ header {
     @extend .block;
     overflow: hidden;
     font-size: 60px;
-    line-height: 1.2em;
+    line-height: 1.8em;
   }
   .text {
     @extend .block;
@@ -70,5 +70,11 @@ header {
   p {
     @extend .block;
     @extend .text-center;
+    margin-bottom: 3em;
   }
+}
+
+.highlight {
+  padding: 0;
+  margin: 0;
 }
