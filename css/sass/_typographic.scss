@@ -1,4 +1,4 @@
-$font-size: 1.2rem;
+$font-size: 1.1rem;
 $line-height: 26px;
 // $font-family: "Quicksand";
 // $font-family: 'Droid Sans', sans-serif;
@@ -167,7 +167,7 @@ pre, code {
   -webkit-text-size-adjust: 100%;
 }
 
-pre, p code {
+pre, p code, dt code, dd code {
   background: #FCFCFC;
   border: 1px inset rgba(0, 134, 179, 0.2);
   -webkit-border-radius: 0.2em;
