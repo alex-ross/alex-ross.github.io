@@ -44,9 +44,9 @@
 [Wed Sep 24 18:21:20 2014] [notice] suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
 [Wed Sep 24 18:21:20 2014] [error] *** Passenger could not be initialized because of this error: Unable to start the Phusion Passenger watchdog (/usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.52/buildout/agents/PassengerWatchdog): Permission denied (errno=13)
 </code></pre></div>
-<p>I did get this error while configurated a new server with CentOS 6.5, Apache and
-Passenger for an Ruby on Rails application. If yout setup looks different, then
-you may not be able to do exactly like me. I did google alot on <code>Unable
+<p>I did get this error while configured a new server with CentOS 6.5, Apache and
+Passenger for an Ruby on Rails application. If your setup looks different, then
+you may not be able to do exactly like me. I did google allot on <code>Unable
 to start the Phusion Passenger watchdog</code> and <code>Permission denied (errno=13)</code> but
 without success. I first thought it had something to do with file permissions
 but it wasn&#39;t. The real problem here are SELinux security policy. We do not want
@@ -81,7 +81,7 @@ everything is permitted but will create warnings.</p>
 </code></pre></div>
 <p>You can now also run <code>cat httpdrules.te</code> and make sure it doesn&#39;t contain anything
 suspicious. If it looks ok then we can make it permanent by running</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># notice the capitaliced -M instead of -m that we used before</span>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># notice the capitalized -M instead of -m that we used before</span>
 grep httpd_t /var/log/audit/audit.log <span class="p">|</span> audit2allow -M httpdrules
 semodule -i httpdrules.pp
 </code></pre></div>
@@ -105,7 +105,7 @@ If this isn't on your system for any reason it can be installed with <code>yum i
 
 <dt>I don't use CentOS but i have the same error, will this work for me?</dt>
 <dd>
-This guide is written based on my experiense with CentOS, Apache, Passenger and
+This guide is written based on my experiences with CentOS, Apache, Passenger and
 a Ruby on Rails application i tried to deploy. Some parts in this may still be
 useful for you. But you will need to google a bit if your files don't look the same or if
 they are not on the same location.

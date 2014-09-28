@@ -15,9 +15,9 @@ Does this look familiar for you? If it does, then you are on the right place.
 [Wed Sep 24 18:21:20 2014] [error] *** Passenger could not be initialized because of this error: Unable to start the Phusion Passenger watchdog (/usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.52/buildout/agents/PassengerWatchdog): Permission denied (errno=13)
 ```
 
-I did get this error while configurated a new server with CentOS 6.5, Apache and
-Passenger for an Ruby on Rails application. If yout setup looks different, then
-you may not be able to do exactly like me. I did google alot on `Unable
+I did get this error while configured a new server with CentOS 6.5, Apache and
+Passenger for an Ruby on Rails application. If your setup looks different, then
+you may not be able to do exactly like me. I did google allot on `Unable
 to start the Phusion Passenger watchdog` and `Permission denied (errno=13)` but
 without success. I first thought it had something to do with file permissions
 but it wasn't. The real problem here are SELinux security policy. We do not want
@@ -60,7 +60,7 @@ You can now also run `cat httpdrules.te` and make sure it doesn't contain anythi
 suspicious. If it looks ok then we can make it permanent by running
 
 ```bash
-# notice the capitaliced -M instead of -m that we used before
+# notice the capitalized -M instead of -m that we used before
 grep httpd_t /var/log/audit/audit.log | audit2allow -M httpdrules
 semodule -i httpdrules.pp
 ```
@@ -84,7 +84,7 @@ If this isn't on your system for any reason it can be installed with <code>yum i
 
 <dt>I don't use CentOS but i have the same error, will this work for me?</dt>
 <dd>
-This guide is written based on my experiense with CentOS, Apache, Passenger and
+This guide is written based on my experiences with CentOS, Apache, Passenger and
 a Ruby on Rails application i tried to deploy. Some parts in this may still be
 useful for you. But you will need to google a bit if your files don't look the same or if
 they are not on the same location.
