@@ -1,20 +1,32 @@
 ---
 layout: default
-title: Mainpage
+frontpage: true
 ---
 <main class="pages-index">
   {% for post in paginator.posts %}
-  <a href="{{ post.url }}">
     <article>
-      <h2>{{ post.title }}</h2>
-      <time>
-        <small class="muted">
-          {{ post.date | date: "%d %B %Y" }}
-        </small>
-      </time>
+      <h2><a href ="{{post.url}}">{{ post.title }}</a></h2>
+      <small class="muted">
+        <span>{{ post.date | date: "%d %B %Y" }}</span>
+        <a href="{{post.url}}#disqus_thread" class="comments-count">...</a>
+      </small>
 
-      {{ post.content |truncatehtml | truncatewords: 30 }}
+      <a href="{{post.url}}">
+        {{ post.excerpt }}
+      </a>
     </article>
-  </a>
   {% endfor %}
 </main>
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'aross-blogg'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
