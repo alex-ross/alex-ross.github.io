@@ -8,7 +8,7 @@ frontpage: true
       <h2><a href ="{{post.url}}">{{ post.title }}</a></h2>
       <small class="muted">
         <span>{{ post.date | date: "%d %B %Y" }}</span>
-        <a href="{{post.url}}#disqus_thread" class="comments-count"></a>
+        <a href="{{site.base_url}}{{post.url}}#disqus_thread" class="comments-count">0 Comments</a>
       </small>
 
       <a href="{{post.url}}">
