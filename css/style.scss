@@ -20,6 +20,10 @@ $screen-large: 580px;
   text-align: center;
 }
 
+.comments-count {
+  color: $link-color;
+}
+
 // Main layout
 main,
 header,
@@ -41,6 +45,9 @@ footer {
   }
   a {
     color: $font-color;
+    &.comments-count {
+      @extend .comments-count;
+    }
   }
 }
 
