@@ -187,9 +187,12 @@ pre {
   padding-right: .5em;
 }
 
-p code {
-  color: #0086b3;
+p, dd, dt, li, small {
+  code {
+    color: #0086b3;
+  }
 }
+
 
 em{
   font-style: italic;
