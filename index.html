@@ -14,7 +14,7 @@ frontpage: true
         </h3>
     </a>
     <p class="post-meta">
-      Posted by <a href="#">Alexander Ross</a> on {{ post.date | "%d %B %Y" }}
+      Posted by <a href="#">Alexander Ross</a> on {{ post.date | date: "%d %B %Y" }}
       |
       <a href="{{site.base_url}}{{post.url}}#disqus_thread" class="comments-count">0 Comments</a>
     </p>
