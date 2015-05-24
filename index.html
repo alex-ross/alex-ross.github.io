@@ -2,21 +2,33 @@
 layout: default
 frontpage: true
 ---
-<main class="pages-index">
-  {% for post in paginator.posts %}
-    <article>
-      <h2><a href ="{{post.url}}">{{ post.title }}</a></h2>
-      <small class="muted">
-        <span>{{ post.date | date: "%d %B %Y" }}</span>
-        <a href="{{site.base_url}}{{post.url}}#disqus_thread" class="comments-count">0 Comments</a>
-      </small>
 
-      <a href="{{post.url}}">
-        {{ post.excerpt }}
-      </a>
-    </article>
-  {% endfor %}
-</main>
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        <h3 class="post-subtitle">
+            {{ post.excerpt | strip_html }}
+        </h3>
+    </a>
+    <p class="post-meta">
+      Posted by <a href="#">Alexander Ross</a> on {{ post.date | "%d %B %Y" }}
+      |
+      <a href="{{site.base_url}}{{post.url}}#disqus_thread" class="comments-count">0 Comments</a>
+    </p>
+</div>
+
+<hr>
+{% endfor %}
+
+<!-- Pager -->
+<!-- <ul class="pager"> -->
+    <!-- <li class="next"> -->
+        <!-- <a href="#">Older Posts &rarr;</a> -->
+    <!-- </li> -->
+<!-- </ul> -->
 
 <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
