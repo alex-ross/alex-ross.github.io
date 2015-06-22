@@ -15,7 +15,7 @@ also create a patch file which later on can be sent by email or transfered over
 an USB-stick to someone that will apply it in the main repository.
 
 Let's assume that you and me are two awesome people in a train without internet
-and a really good project idea. We are going to write a story together using
+and we have a really good project idea. We are going to write a story together using
 Git.
 
 ## Let me start by creating the first chapter
