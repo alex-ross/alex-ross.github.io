@@ -2,6 +2,7 @@
 layout:     post
 title:      "Create and apply Git patch files"
 date:       2015-06-22
+header_img: img/git-homepage-bg.jpg
 tags:
 - git
 - git patch
