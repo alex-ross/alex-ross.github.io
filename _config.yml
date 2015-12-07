@@ -2,6 +2,6 @@ name: aross.se
 description: "Happy developer which loves to play around with Ruby, JavaScript and other stuff thats related to mobile and web development"
 base_url: http://aross.se
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'sass', 'watch', 'style.scss', 'Rakefile']
 paginate: 30

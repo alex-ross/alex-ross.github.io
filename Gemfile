@@ -2,7 +2,7 @@
 # external gems or plugins.
 source "https://rubygems.org"
 
-gem "jekyll"
+gem "github-pages"
 gem "sass"
 gem "nokogiri"
 
