@@ -35,7 +35,6 @@ you can change to match your or your's team coding style.
 
 Our configuration file looks like this:
 
-{% highlight yaml %}
 ```yaml
 # .rubocop.yml
 
