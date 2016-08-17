@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/aross
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://aross.se
+  * I am aross (https://keybase.io/aross) on keybase.
+  * I have a public key ASDPyzK_ROGPT4kF1IsoOIG3qMx4xOw3gme-3bbRElnEwgo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120cfcb32bf44e18f4f8905d48b283881b7a8cc78c4ec378267beddb6d11259c4c20a",
+            "host": "keybase.io",
+            "kid": "0120cfcb32bf44e18f4f8905d48b283881b7a8cc78c4ec378267beddb6d11259c4c20a",
+            "uid": "7b2a92e85b7719c4d09da564155be919",
+            "username": "aross"
+        },
+        "service": {
+            "hostname": "aross.se",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.16"
+    },
+    "ctime": 1471447580,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1471447462,
+        "hash": "c89a046bb56ae2ff1712dae1e6853b0d90d0875a4e0023c12f9cab9f5b20373eefbe8cd4ebbcb9420f5e7f124ee8cf65df4e09db02f188a6d4cae3aa343ed892",
+        "seqno": 584912
+    },
+    "prev": "d46001e6defe36afa1c96b7506c2023c9eb4056f8e010b5e9ab7a75f5453a6ba",
+    "seqno": 7,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgz8syv0Thj0+JBdSLKDiBt6jMeMTsN4Jnvt220RJZxMIKp3BheWxvYWTFAux7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwY2ZjYjMyYmY0NGUxOGY0Zjg5MDVkNDhiMjgzODgxYjdhOGNjNzhjNGVjMzc4MjY3YmVkZGI2ZDExMjU5YzRjMjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwY2ZjYjMyYmY0NGUxOGY0Zjg5MDVkNDhiMjgzODgxYjdhOGNjNzhjNGVjMzc4MjY3YmVkZGI2ZDExMjU5YzRjMjBhIiwidWlkIjoiN2IyYTkyZTg1Yjc3MTljNGQwOWRhNTY0MTU1YmU5MTkiLCJ1c2VybmFtZSI6ImFyb3NzIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJhcm9zcy5zZSIsInByb3RvY29sIjoiaHR0cDoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTYifSwiY3RpbWUiOjE0NzE0NDc1ODAsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ3MTQ0NzQ2MiwiaGFzaCI6ImM4OWEwNDZiYjU2YWUyZmYxNzEyZGFlMWU2ODUzYjBkOTBkMDg3NWE0ZTAwMjNjMTJmOWNhYjlmNWIyMDM3M2VlZmJlOGNkNGViYmNiOTQyMGY1ZTdmMTI0ZWU4Y2Y2NWRmNGUwOWRiMDJmMTg4YTZkNGNhZTNhYTM0M2VkODkyIiwic2Vxbm8iOjU4NDkxMn0sInByZXYiOiJkNDYwMDFlNmRlZmUzNmFmYTFjOTZiNzUwNmMyMDIzYzllYjQwNTZmOGUwMTBiNWU5YWI3YTc1ZjU0NTNhNmJhIiwic2Vxbm8iOjcsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAOjJcU3W3we7mgCvBwLrbxkUtEY1/CQnLJ6cDYw2ZaJlUm36GASIvJ2QlySd+CfVQANJ7dSoZwncBWxzL4fHnAahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMX7AgWHOUUwhFDc0NUZlYxO3JLaamGND6IUMMkSYy6ro3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/aross
+
+==================================================================
