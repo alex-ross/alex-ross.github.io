@@ -6,9 +6,13 @@ date:       2017-07-24
 
 Yatzy is a game you play with 5 dices together with your friends.
 
-If you don't have any yatzy protocol papers you can use an app called Yatzy Protocol which is soon available on App Store for iPhone.
+If you don't have any yatzy protocol papers you can use an app I created called Yatzy Protocol which is available on App Store for iPhone.
 
-Link will come soon.
+<img src="/img/yatzy app iphone screenshot.jpeg" width="35%" alt="iPhone Screenshot" />
+
+<a href="https://appsto.re/se/4VUplb.i" target="_blank">
+  <img src="/img/Download_on_the_App_Store_Badge_US-UK_135x40.svg" alt="Download on App Store" />
+</a>
 
 Please use the comments for any questions or discussion about the game. You can also send me an email at yatzy@aross.se about any questions regarding the iPhone application.
 
