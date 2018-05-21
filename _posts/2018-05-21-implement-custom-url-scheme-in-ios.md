@@ -63,7 +63,9 @@ When we open the application with the URL it will do nothing. So in next step, l
 To read the URL you need to implement the method `application(_:open:options)` in the `AppDelegate`. Write it like below.
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func application(_ app: UIApplication,
+                 open url: URL,
+                 options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     return true
 }
 ```
@@ -73,7 +75,9 @@ This method will be called when the application is launched with a URL. The URL 
 We can access the root view controller through the window. We only have one controller in the project we can also be sure that it's the `ViewController`.
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func application(_ app: UIApplication,
+                 open url: URL,
+                 options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     let vc = window?.rootViewController as! ViewController
     return true
 }
@@ -82,7 +86,9 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 Now when we have access to the view controller we can set the label text to the same as the url.
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func application(_ app: UIApplication,
+                 open url: URL,
+                 options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     let vc = window?.rootViewController as! ViewController
     vc.urlLabel.text = url.absoluteString
     return true
