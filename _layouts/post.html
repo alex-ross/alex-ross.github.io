@@ -37,6 +37,9 @@ layout: base
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              {% if page.youtube_video_id %}
+                <iframe width="750" height="421" src="https://www.youtube.com/embed/{{page.youtube_video_id}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+              {% endif %}
               {{content}}
             </div>
         </div>
