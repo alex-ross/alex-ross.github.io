@@ -18,6 +18,12 @@
       <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}" />
     {% endif %}
 
+    {% if page.tags %}
+      <meta name="keywords" content="{{ page.tags | join: "," }}" />
+    {% else %}
+      <meta name="keywords" content="developer,ios,ruby" />
+    {% endif %}
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 

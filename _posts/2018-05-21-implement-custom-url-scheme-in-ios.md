@@ -3,7 +3,11 @@ layout:     post
 title:      "Implement custom URL scheme in iOS"
 date:       2018-05-21
 header_img: img/posts/2018-05-21/header.png
-youtube_video_id: CDQSAjv31xM 
+youtube_video_id: CDQSAjv31xM
+tags:
+- ios
+- development
+- custom
 ---
 
 Custom URL schemes is a great way to enable automation in your application for power users or to allowing users or other developers to go to a view or a state in your app by using a URL just like browsing the web.
@@ -14,7 +18,7 @@ You could for example in the same application, or from another one open this app
 
 ```swift
 UIApplication.shared
-  .open(URL(string: "urlviewer://HelloWorld")!, 
+  .open(URL(string: "urlviewer://HelloWorld")!,
         options: [:],
         completionHandler: nil)
 ```

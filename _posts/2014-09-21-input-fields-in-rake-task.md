@@ -2,6 +2,9 @@
 layout:     post
 title:      "Input fields in rake task"
 date:       2014-09-21
+tags:
+- rake
+- rakefile
 ---
 
 Rake is an awesome tool to automate workflows during development or for some other stuff.

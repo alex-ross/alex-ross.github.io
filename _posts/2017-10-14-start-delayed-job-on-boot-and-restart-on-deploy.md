@@ -2,6 +2,10 @@
 layout:     post
 title:      "Start Delayed Job on boot and restart on deploy"
 date:       2017-10-14
+tags:
+- delayed job
+- ubuntu
+- upstart
 ---
 
 If you have an rails application that is running delayed job for its background processes you probably would like it to start automatically whenever the server restarts. But you will also need it to restart if your rails applications are deployed so you can be sure that it is running the latest version of it.
@@ -106,21 +110,21 @@ namespace :delayed_job do
   def delayed_job_roles
     fetch(:delayed_job_server_role, :app)
   end
- 
+
   desc 'Stop the delayed_job process'
   task :stop do
     on roles(delayed_job_roles) do
       execute :sudo, :initctl, :stop, :delayed_job
     end
   end
- 
+
   desc 'Start the delayed_job process'
   task :start do
     on roles(delayed_job_roles) do
       execute :sudo, :initctl, :start, :delayed_job
     end
   end
- 
+
   desc 'Restart the delayed_job process'
   task :restart do
     on roles(delayed_job_roles) do

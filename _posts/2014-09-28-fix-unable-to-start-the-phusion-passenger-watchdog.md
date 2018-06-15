@@ -2,6 +2,9 @@
 layout:     post
 title:      "Fix: Unable to start the Phusion Passenger watchdog"
 date:       2014-09-28
+tags:
+- phusion passenger
+- linux
 ---
 
 Does this look familiar for you? If it does, then you are on the right place.

@@ -3,6 +3,10 @@ layout: post
 title:  "Configure RuboCop for your project"
 date:   2015-12-07 19:24
 categories: ruby rubocop
+tags:
+- rubocop
+- ruby
+- gems
 ---
 
 > RuboCop is a Ruby static code analyzer. Out of the box it will enforce many of the guidelines outlined in the community Ruby Style Guide.

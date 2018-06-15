@@ -3,6 +3,9 @@ layout: post
 title:  "Get pow running with ZSH and Rbenv"
 date:   2014-03-02
 categories: pow rbenv
+tags:
+- pow
+- rbenv
 ---
 
 Usually I'm using `rails s` with thin or webbrick when developing web

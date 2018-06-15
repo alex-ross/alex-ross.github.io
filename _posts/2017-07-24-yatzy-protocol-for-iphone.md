@@ -2,6 +2,9 @@
 layout:     post
 title:      "Yatzy Protocol for iPhone"
 date:       2017-07-24
+tags:
+- yatzy
+- iphone
 ---
 
 Yatzy is a game you play with 5 dices together with your friends.
