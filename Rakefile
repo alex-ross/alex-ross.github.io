@@ -12,8 +12,7 @@ task :serve do
   end
 
   system_thread 'bundle exec guard'
-  system_thread 'jekyll serve -w'
-  system_thread './watch'
+  system_thread 'bundle exec jekyll serve -w'
 
   ThreadsWait.all_waits *@threads
 
