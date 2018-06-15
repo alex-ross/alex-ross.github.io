@@ -3,7 +3,7 @@ name: aross.se
 email: alex@aross.se
 description: "Happy developer which loves to play around with Ruby, JavaScript and other stuff thats related to mobile and web development"
 base_url: /
-url: http://aross.se
+url: https://aross.se
 # markdown: redcarpet
 # highlighter: rouge
 exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'sass', 'watch', 'style.scss', 'Rakefile']
