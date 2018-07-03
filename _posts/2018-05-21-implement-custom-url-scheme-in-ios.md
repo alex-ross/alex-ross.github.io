@@ -3,7 +3,7 @@ layout:     post
 title:      "Implement custom URL scheme in iOS"
 date:       2018-05-21
 header_img: img/posts/2018-05-21/header.png
-youtube_video_id: CDQSAjv31xM
+# youtube_video_id: CDQSAjv31xM
 tags:
 - ios
 - development
