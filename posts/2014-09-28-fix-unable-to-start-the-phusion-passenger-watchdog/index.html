@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="og:site_name" content="Alexander Ross"/><link rel="canonical" href="https://your-website-url.com/posts/2014-09-28-fix-unable-to-start-the-phusion-passenger-watchdog"/><meta name="twitter:url" content="https://your-website-url.com/posts/2014-09-28-fix-unable-to-start-the-phusion-passenger-watchdog"/><meta name="og:url" content="https://your-website-url.com/posts/2014-09-28-fix-unable-to-start-the-phusion-passenger-watchdog"/><title>Fix: Unable to start the Phusion Passenger watchdog | Alexander Ross</title><meta name="twitter:title" content="Fix: Unable to start the Phusion Passenger watchdog | Alexander Ross"/><meta name="og:title" content="Fix: Unable to start the Phusion Passenger watchdog | Alexander Ross"/><meta name="description" content="[error] *** Passenger could not be initialized because of this error: Unable to start the Phusion Passenger watchdog (/usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.52/buildout/agents/PassengerWatchdog): Permission denied (errno=13)"/><meta name="twitter:description" content="[error] *** Passenger could not be initialized because of this error: Unable to start the Phusion Passenger watchdog (/usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.52/buildout/agents/PassengerWatchdog): Permission denied (errno=13)"/><meta name="og:description" content="[error] *** Passenger could not be initialized because of this error: Unable to start the Phusion Passenger watchdog (/usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.52/buildout/agents/PassengerWatchdog): Permission denied (errno=13)"/><meta name="twitter:card" content="summary"/><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-55009015-1', 'auto');
+ga('send', 'pageview');</script><link rel="stylesheet" href="/styles.css?v=5" type="text/css"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="shortcut icon" href="/ArossWebsite/favicon-96x96.png" type="image/png"/><link rel="alternate" href="/feed.rss" type="application/rss+xml" title="Subscribe to Alexander Ross"/><meta name="twitter:image" content="https://your-website-url.com/ArossWebsite/logo.png"/><meta name="og:image" content="https://your-website-url.com/ArossWebsite/logo.png"/></head><body class="item-page"><header><div class="wrapper"><a class="site-name" href="/">Alexander Ross</a></div></header><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4141599655973760" data-ad-slot="7238016739" data-ad-format="auto" data-adtest="on"></ins><div class="wrapper"><article><div class="content"><h1>Fix: Unable to start the Phusion Passenger watchdog</h1><p>Does this look familiar for you? If it does, then you are on the right place.</p><pre data-language="undefined"><code>
+# /var/log/httpd/error_log
+[Wed Sep 24 18:21:20 2014] [notice] caught SIGTERM, shutting down
+[Wed Sep 24 18:21:20 2014] [notice] SELinux policy enabled; httpd running as context unconfined_u:system_r:httpd_t:s0
+[Wed Sep 24 18:21:20 2014] [notice] suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Wed Sep 24 18:21:20 2014] [error] *** Passenger could not be initialized because of this error: Unable to start the Phusion Passenger watchdog (/usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.52/buildout/agents/PassengerWatchdog): Permission denied (errno=13)
+</code></pre><p>I did get this error while configured a new server with CentOS 6.5, Apache and Passenger for an Ruby on Rails application. If your setup looks different, then you may not be able to do exactly like me. I did google allot on `Unable to start the Phusion Passenger watchdog<code> and </code>Permission denied (errno=13)` but without success. I first thought it had something to do with file permissions but it wasn't. The real problem here are SELinux security policy. We do not want to turn this one of because it actually are trying to do good for us. After all it's there for our security.</p><p>We need to know which services that is prevented in order to start passenger and allow only those. To do that we start by setting SELinux into permissive mode. This will allow us to run all application without it being stoped by SELinux use but it will log warnings which we will use to create rule and permit what we need.</p><p>Open <code>/etc/selinux/config</code> and change <code>SELINUX=enforcing</code> to <code>SELINUX=permissive</code>.</p><pre data-language="bash"><code><span class="hljs-comment"># This file controls the state of SELinux on the system.</span>
+<span class="hljs-comment"># SELINUX= can take one of these three values:</span>
+<span class="hljs-comment">#   enforcing - SELinux security policy is enforced.</span>
+<span class="hljs-comment">#   permissive - SELinux prints warnings instead of enforcing.</span>
+<span class="hljs-comment">#   disabled - No SELinux policy is loaded.</span>
+SELINUX=permissive
+<span class="hljs-comment"># SELINUXTYPE= can take one of these two values:</span>
+<span class="hljs-comment">#   targeted - Only targeted network daemons are protected.</span>
+<span class="hljs-comment">#   strict - Full SELinux protection.</span>
+SELINUXTYPE=targeted
+</code></pre><p>Now you need to reboot your server in order for these settings to take action.</p><p>Start the processes needed for your application to run (mysql, redis and so on) and then visit your page in the browser. It should now be working because everything is permitted but will create warnings.</p><p>Now we can create our rules by running the command bellow.</p><pre data-language="bash"><code>grep httpd_t /var/<span class="hljs-built_in">log</span>/audit/audit.log | audit2allow -m httpdrules &gt; httpdrules.te
+</code></pre><p>You can now also run <code>cat httpdrules.te</code> and make sure it doesn't contain anything suspicious. If it looks ok then we can make it permanent by running</p><pre data-language="bash"><code><span class="hljs-comment"># notice the capitalized -M instead of -m that we used before</span>
+grep httpd_t /var/<span class="hljs-built_in">log</span>/audit/audit.log | audit2allow -M httpdrules
+semodule -i httpdrules.pp
+</code></pre><p>Next step to se if it all is working is to change <code>permissive</code> back to <code>enforcing</code> in our <code>/etc/selinux/config</code> file and reboot.</p><h2>Q &amp; A</h2><dl>
+<dt>It still doesn't work!</dt>
+<dd>
+If you get an similar error you can look at <a href="http://wiki.centos.org/HowTos/SELinux#head-aa437f65e1c7873cddbafd9e9a73bbf9d102c072">CentOS wiki</a>
+how to customize these rules more. Else if you got another error this may just be one of a few errors in your stack. Google is your friend.
+<dd>
+
+<dt>How to install <code>audit2allow</code> if it's not available</dt>
+<dd>
+It comes with <code>policycoreutils-python</code> which is often installed with the system.
+If this isn't on your system for any reason it can be installed with <code>yum install policycoreutils-python</code>.
+</dd>
+
+<dt>I don't use CentOS but i have the same error, will this work for me?</dt>
+<dd>
+This guide is written based on my experiences with CentOS, Apache, Passenger and
+a Ruby on Rails application i tried to deploy. Some parts in this may still be
+useful for you. But you will need to google a bit if your files don't look the same or if
+they are not on the same location.
+</dd>
+
+<dt>I don't care about security, how to turn of SELinux completly?</dt>
+<dd>
+This is something you should only do if you not planing to go public with your
+application. If this is true then just change your <code>SELINUX</code> option
+in <code>/etc/selinux/config</code> to <code>disabled</code> and reboot.
+</dd>
+</dl></div><span>Tagged with: </span><ul class="tag-list"><li><a href="/tags/phusion-passenger">phusion passenger</a></li><li><a href="/tags/linux">linux</a></li></ul></article></div><footer><p><a href="https://standout.se">Work with me</a></p><p><a href="/feed.rss">RSS feed</a></p><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></footer></body></html>

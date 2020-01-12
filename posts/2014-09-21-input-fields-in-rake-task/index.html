@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="og:site_name" content="Alexander Ross"/><link rel="canonical" href="https://your-website-url.com/posts/2014-09-21-input-fields-in-rake-task"/><meta name="twitter:url" content="https://your-website-url.com/posts/2014-09-21-input-fields-in-rake-task"/><meta name="og:url" content="https://your-website-url.com/posts/2014-09-21-input-fields-in-rake-task"/><title>Input fields in rake task | Alexander Ross</title><meta name="twitter:title" content="Input fields in rake task | Alexander Ross"/><meta name="og:title" content="Input fields in rake task | Alexander Ross"/><meta name="description" content="Add input data in to running rake task"/><meta name="twitter:description" content="Add input data in to running rake task"/><meta name="og:description" content="Add input data in to running rake task"/><meta name="twitter:card" content="summary"/><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-55009015-1', 'auto');
+ga('send', 'pageview');</script><link rel="stylesheet" href="/styles.css?v=5" type="text/css"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="shortcut icon" href="/ArossWebsite/favicon-96x96.png" type="image/png"/><link rel="alternate" href="/feed.rss" type="application/rss+xml" title="Subscribe to Alexander Ross"/><meta name="twitter:image" content="https://your-website-url.com/ArossWebsite/logo.png"/><meta name="og:image" content="https://your-website-url.com/ArossWebsite/logo.png"/></head><body class="item-page"><header><div class="wrapper"><a class="site-name" href="/">Alexander Ross</a></div></header><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4141599655973760" data-ad-slot="7238016739" data-ad-format="auto" data-adtest="on"></ins><div class="wrapper"><article><div class="content"><h1>Input fields in rake task</h1><p>Rake is an awesome tool to automate workflows during development or for some other stuff.</p><p>But lets say we have a task called <code>customer:add</code> where we want to assign name and email to the new customer. In this case we must be able to interact with our task.</p><p>So we have this rake file as you can se below which just adds an new customer to an YAML file but they all will have the same name and email until we manually changes the file. Lets take a look how we could assign then while running the taks in next section.</p><pre data-language="ruby"><code><span class="hljs-comment"># Rakefile</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">"yaml"</span>
+
+namespace <span class="hljs-symbol">:customer</span> <span class="hljs-keyword">do</span>
+  task <span class="hljs-symbol">:add</span> <span class="hljs-keyword">do</span>
+    name = <span class="hljs-string">"Example name"</span>
+    email = <span class="hljs-string">"Example email"</span>
+
+    <span class="hljs-comment"># <span class="hljs-doctag">TODO:</span> Here we need to customize the attributes</span>
+
+    storage = <span class="hljs-string">'customers.yml'</span>
+    yaml = load_yaml_storage(storage)
+    yaml[<span class="hljs-string">"customers"</span>] <span class="hljs-params">||</span>= [] <span class="hljs-comment"># Make sure the key customer is defined</span>
+    yaml[<span class="hljs-string">"customers"</span>] &lt;&lt; { <span class="hljs-comment"># Adds the new customer</span>
+      <span class="hljs-symbol">name:</span> name,
+      <span class="hljs-symbol">email:</span> email
+    }
+    File.write(storage, yaml.to_yaml) <span class="hljs-comment"># Saves the file with new data</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">load_yaml_storage</span><span class="hljs-params">(storage)</span></span>
+  yaml = YAML.load_file(storage) <span class="hljs-comment"># Loads the yaml file</span>
+  yaml <span class="hljs-keyword">or</span> {}
+<span class="hljs-keyword">rescue</span> Errno::ENOENT <span class="hljs-comment"># If the file doesn't exists we return an empty hash</span>
+  {}
+<span class="hljs-keyword">end</span>
+</code></pre><h2>Add input fields to our task</h2><p>The example above is an working one so you can copy it and paste it into your favorite editor and play along. To interact with the data before it's written to the file we can use <code>STDIN</code> from ruby.</p><p>Lets try it by starting <code>irb</code> from the terminal and test the code below</p><pre data-language="ruby"><code>value = STDIN.gets
+<span class="hljs-comment"># Ruby will now wait for you to write something and press enter, try with Hello, World!</span>
+
+value.inspect
+<span class="hljs-comment"># =&gt; "Hello, World!\n"</span>
+</code></pre><p>As you can se the value will also include an <code>\n</code> which we don't want. This can be removed with</p><pre data-language="ruby"><code>value.chomp
+<span class="hljs-comment"># =&gt; "Hello, World!"</span>
+</code></pre><p>So if we take our new experience from this and add it to the Rakefile it could look something like</p><pre data-language="ruby"><code><span class="hljs-comment"># Rakefile</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">"yaml"</span>
+
+namespace <span class="hljs-symbol">:customer</span> <span class="hljs-keyword">do</span>
+  task <span class="hljs-symbol">:add</span> <span class="hljs-keyword">do</span>
+    puts <span class="hljs-string">"What's the customer name?"</span>
+    name = STDIN.gets.chomp
+
+    puts <span class="hljs-string">"And email?"</span>
+    email = STDIN.gets.chomp
+
+    storage = <span class="hljs-string">'customers.yml'</span>
+    yaml = load_yaml_storage(storage)
+    yaml[<span class="hljs-string">"customers"</span>] <span class="hljs-params">||</span>= [] <span class="hljs-comment"># Make sure the key customer is defined</span>
+    yaml[<span class="hljs-string">"customers"</span>] &lt;&lt; { <span class="hljs-comment"># Adds the new customer</span>
+      <span class="hljs-symbol">name:</span> name,
+      <span class="hljs-symbol">email:</span> email
+    }
+    File.write(storage, yaml.to_yaml) <span class="hljs-comment"># Saves the file with new data</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">load_yaml_storage</span><span class="hljs-params">(storage)</span></span>
+  yaml = YAML.load_file(storage) <span class="hljs-comment"># Loads the yaml file</span>
+  yaml <span class="hljs-keyword">or</span> {}
+<span class="hljs-keyword">rescue</span> Errno::ENOENT <span class="hljs-comment"># If the file doesn't exists we return an empty hash</span>
+  {}
+<span class="hljs-keyword">end</span>
+</code></pre><p>It should now be working. Lets try it out by running <code>rake customer:add</code> from your terminal.</p><img src="/images/posts/2014-09-21/result.gif" alt="/img/posts/2014-09-21/result.gif"/><p>Remember, you can add as many customers as you want. <code>STDIN</code> is pure ruby so this example could be applied to other ruby scripts as well.</p></div><span>Tagged with: </span><ul class="tag-list"><li><a href="/tags/rake">rake</a></li><li><a href="/tags/rakefile">rakefile</a></li></ul></article></div><footer><p><a href="https://standout.se">Work with me</a></p><p><a href="/feed.rss">RSS feed</a></p><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></footer></body></html>
